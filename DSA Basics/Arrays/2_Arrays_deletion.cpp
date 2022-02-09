@@ -26,7 +26,7 @@ using namespace std;
 // }
 
 
-
+// gfg solution
 int deleteEle(int arr[], int n, int x)
 {
 	int i = 0;
