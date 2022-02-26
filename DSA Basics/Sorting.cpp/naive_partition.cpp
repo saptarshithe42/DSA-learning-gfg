@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
 
+// time complexity : theta(n)
+// space complexity : theta(n)
 int naive_partition(int arr[], int l, int h, int p)
 {
     int temp[h - l + 1], index  = 0;

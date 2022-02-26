@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "algorithm": "cpp",
+        "utility": "cpp"
     }
 }
