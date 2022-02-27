@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int lomuto_partition(int arr[], int l, int h);
+int hoare_partition(int arr[], int l, int h);
 
 // quick sort with lomuto partitioning
 
@@ -12,11 +12,24 @@ void quick_sort(int arr[], int l, int h)
 {
     if (l < h)
     {
-        int p = lomuto_partition(arr, l, h);
-        quick_sort(arr, l, p-1);
+        int p = hoare_partition(arr, l, h);
+        quick_sort(arr, l, p);
         quick_sort(arr, p+1, h);
     }
 }
+
+// tail call elimination
+// void quick_sort(int arr[], int l, int h)
+// {
+//     Begin:
+//     if (l < h)
+//     {
+//         int p = hoare_partition(arr, l, h);
+//         quick_sort(arr, l, p);
+//         l = p + 1;
+//         goto Begin;
+//     }
+// }
 
 int main()
 {
@@ -46,19 +59,24 @@ int main()
     return 0;
 }
 
-int lomuto_partition(int arr[], int l, int h)
+int hoare_partition(int arr[], int l, int h)
 {
-    int i = l - 1;
-    int pivot = arr[h];
-    for(int j = l; j <= h-1; j++)
+    int i = l - 1, j = h + 1;
+    int pivot = arr[l];
+
+    while (true)
     {
-        if (arr[j] < pivot)
+        do
         {
             i++;
-            swap(arr[i], arr[j]);
-        }
-    }
-    swap(arr[i+1], arr[h]);
+        } while(arr[i] < pivot);
+        do
+        {
+            j--;
+        } while(arr[j] > pivot);
 
-    return (i+1);
+        if (i >= j) return j;
+
+        swap(arr[i], arr[j]);
+    }
 }
