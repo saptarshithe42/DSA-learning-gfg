@@ -3,6 +3,7 @@
         "iostream": "cpp",
         "valarray": "cpp",
         "algorithm": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "new": "cpp"
     }
 }
