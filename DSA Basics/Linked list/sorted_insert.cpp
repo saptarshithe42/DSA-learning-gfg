@@ -13,42 +13,34 @@ struct Node
     }
 };
 
+// time complexity : theta(pos), pos is position of node to be inserted
 Node *sorted_insert(Node *head, int x)
 {
-    Node *temp = new Node(x);
+    Node* temp = new Node(x);
 
-    if(head->next == NULL)
+    if (head == NULL)
     {
-        if (x > head->data)
-        {
-            head->next = temp;
-            return head;
-        }
-        else
-        {
-            temp->next = head;
-            return temp;
-        }
+        return temp;
     }
 
-    Node *curr = head;
-
-    while (curr->next != NULL)
+    if (x < head->data)
     {
-        if ((x >= curr->data) && (x < curr->next->data))
-        {
-            temp->next = curr->next;
-            curr->next = temp;
-            return head;
-        }
+        temp->next = head;
+        return temp;
+    }
+
+    Node* curr = head;
+
+    while ((curr->next != NULL) && (curr->next->data < x))
+    {
         curr = curr->next;
     }
 
-    if (x >= curr->data)
-    {
-        curr->next = temp;
-    }
+    temp->next = curr->next;
+    curr->next = temp;
+
     return head;
+    
 }
 
 void printList(Node *head)
