@@ -1,9 +1,5 @@
 #include <iostream>
-#include<queue>
 using namespace std;
-
-struct Node;
-void preorder(Node *root);
 
 struct Node
 {
@@ -18,32 +14,20 @@ struct Node
     }
 };
 
-
 // time complexity : O(n)  (n is no. of nodes)
-// Aux space : O(w)  (w is width of binary tree)
+// Aux space : O(h)  (h is height of binary tree)
 
-void level_order_traversal(Node* root)
+int maximum_in_binary_tree(Node* root)
 {
     if (root == NULL)
-        return;
+        return INT_MIN;
     
-    queue <Node*> q;
-    q.push(root);
-    while (q.empty() == false)
-    {
-        Node* curr = q.front();
-        q.pop();
-        cout << (curr->key) << " ";
-
-        if (curr->left != NULL)
-            q.push(curr->left);
-        if (curr->right != NULL)
-            q.push(curr->right);
-    }  
+    return (max(root->key, max(maximum_in_binary_tree(root->left), maximum_in_binary_tree(root->right))));
 }
 
 int main()
 {
+
     // Node* root = NULL;
     Node *root = new Node(10);
     root->left = new Node(20);
@@ -52,8 +36,8 @@ int main()
     root->left->right = new Node(50);
     root->right->right = new Node(70);
 
-    level_order_traversal(root);
-    cout << endl;
+    // cout << size_of_binary_tree(root) <<endl;
+
 
     // Node* root = new Node(10);
     // root->left = new Node(6);
@@ -61,6 +45,8 @@ int main()
     // root->right->right = new Node(7);
     // root->right->right->right = new Node(12);
     // root->right->right->left = new Node(11);
+
+    // cout << size_of_binary_tree(root) <<endl;
 
     // preorder(root);
     // cout << endl;
@@ -70,18 +56,9 @@ int main()
     // Node *root = new Node(10);
     // root->left = new Node(20);
     // root->left->left = new Node(30);
+    cout << maximum_in_binary_tree(root) <<endl;
 
     // preorder(root);
 
     return 0;
-}
-
-void preorder(Node *root)
-{
-    if (root != NULL)
-    {
-        cout << (root->key) << " ";
-        preorder(root->left);
-        preorder(root->right);
-    }
 }

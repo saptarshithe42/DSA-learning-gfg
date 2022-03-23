@@ -15,6 +15,9 @@ struct Node
     }
 };
 
+// time complexity : O(n)  (n is no. of nodes)
+// Aux space : O(h)  (h is height of binary tree)
+// same for all inorder, preorder, postorder
 void inorder(Node* root)
 {
     if (root != NULL)

@@ -17,6 +17,9 @@ struct Node
 };
 
 // mysol (similar to gfg sol)
+
+// time complexity : O(n)  (n is no. of nodes)
+// Aux space : O(h)  (h is height of binary tree)
 int height_of_binary_tree(Node* root)
 {
     if (root == NULL)

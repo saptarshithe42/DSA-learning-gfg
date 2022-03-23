@@ -17,6 +17,11 @@ struct Node
     }
 };
 
+
+// time complexity : O(n)  (n is no. of nodes)
+// Aux space : O(h)  (h is height of binary tree)
+
+
 void print_nodes_at_distance_k(Node *root, int k)
 {
     if (root == NULL)
