@@ -3,19 +3,18 @@ using namespace std;
 
 int main()
 {
-    int n;
-    cin >> n;
-    int count = 0;
-    while (n--)
-    {
-        int a, b,c;
-        cin >> a >> b >> c;
-        
-        if ((a + b + c) >= 2)
-            count++;
-    }
-    
-    cout << count << "\n";
+    string s = "";
+    s = s + "s";
+    // s = s + 'm';
+    cout << s << endl;
+
+    char ch = '0';
+    ch++;
+    cout << ch << endl;
+
+    char a = 'm';
+    s = s + a + ch;
+    cout << s << endl;
 
     return 0;
 }
