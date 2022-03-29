@@ -30,6 +30,7 @@
         "syncstream": "cpp",
         "regex": "cpp",
         "tuple": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "cmath": "cpp"
     }
 }

@@ -86,6 +86,30 @@ public:
         minHeapify(0);
         return arr[size];
     }
+
+    
+    // time complexity : O(logn)
+    // space complexity : O(1) 
+    void decreaseKey(int i, int x)
+    {
+        while((i != 0) && (arr[parent(i)] > arr[i]))
+        {
+            swap(arr[i], arr[parent(i)]);
+            i = parent(i);
+        }
+    }
+
+    void deleteKey(int i)
+    {
+        decreaseKey(i, INT_MIN);
+        extractMin();
+    }
+
+    void buildHeap()
+    {
+        for (int i = (size - 2) / 2; i >= 0; i--)
+            minHeapify(i);
+    }
 };
 
 int main()
