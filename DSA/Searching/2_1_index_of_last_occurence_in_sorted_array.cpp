@@ -3,7 +3,7 @@ using namespace std;
 
 
 // time comp : O(logn)
-int index_of_first_occ(int arr[], int n, int x)
+int index_of_last_occ(int arr[], int n, int x)
 {
     int low = 0, high = n-1;
 
@@ -36,7 +36,7 @@ int main()
     int n = 7;
     int x = 20;
 
-    cout << index_of_first_occ(arr, n, x) << endl;
+    cout << index_of_last_occ(arr, n, x) << endl;
 
 
 
