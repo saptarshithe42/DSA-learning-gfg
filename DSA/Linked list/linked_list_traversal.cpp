@@ -16,27 +16,27 @@ struct Node
 
 // time complexity : O(n)
 // iterative
-// void traverse_linked_lists(Node* head)
-// {
-//     Node* curr = head;
-//     while (curr != NULL)
-//     {
-        
-//         cout << curr->data << " ";
-//         curr = curr->next;
-//     }
-// }
-
-// recursive
 void traverse_linked_lists(Node* head)
 {
-    if (head == NULL)
-        return;
-    
-    cout << head->data << " ";
-
-    traverse_linked_lists(head->next);
+    Node* curr = head;
+    while (curr != NULL)
+    {
+        
+        cout << curr->data << " ";
+        curr = curr->next;
+    }
 }
+
+// recursive
+// void traverse_linked_lists(Node* head)
+// {
+//     if (head == NULL)
+//         return;
+    
+//     cout << head->data << " ";
+
+//     traverse_linked_lists(head->next);
+// }
 
 int main()
 {
