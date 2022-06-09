@@ -44,7 +44,7 @@ void BFS(vector<int> adj[], int v, int s)
 */
 
 // 2. B.F.S on disconnected graphs.
-/* 
+
 void BFS(vector<int> adj[], int s, bool visited[])
 {
     queue<int> q;
@@ -86,10 +86,12 @@ void BFSDis(vector<int> adj[], int v)
         }
     }
 }
- */
+ 
 
 // 3. Print number of islands in a graph (or number of connected components in a graph).
 
+
+/*
 void BFS(vector<int> adj[], int s, bool visited[])
 {
     queue<int> q;
@@ -135,10 +137,12 @@ int BFSDis(vector<int> adj[], int v)
     return count;
 }
 
+*/
+
 int main()
 {
 /*     
-    1. Given an undirected graph and a source vertex 's' ,print B.F.S. from given source.
+    1. Given an undirected and connected graph and a source vertex 's' ,print B.F.S. from given source.
     int V = 4;
     vector<int> adj[V];
     addEdge(adj, 0, 1);
@@ -151,21 +155,7 @@ int main()
 
     // 2. B.F.S on disconnected graphs.
 
-    // int V = 7;
-    // vector<int> adj[V];
-    // addEdge(adj, 0, 1);
-    // addEdge(adj, 0, 2);
-    // addEdge(adj, 1, 3);
-    // addEdge(adj, 2, 3);
-
-    // addEdge(adj, 4, 5);
-    // addEdge(adj, 5, 6);
-    // addEdge(adj, 4, 6);
-    // BFSDis(adj, V);
-
-
-    // 3. Print number of islands in a graph (or number of connected components in a graph).
-    int V = 10;
+    int V = 7;
     vector<int> adj[V];
     addEdge(adj, 0, 1);
     addEdge(adj, 0, 2);
@@ -175,13 +165,27 @@ int main()
     addEdge(adj, 4, 5);
     addEdge(adj, 5, 6);
     addEdge(adj, 4, 6);
-    addEdge(adj, 4, 7);
-    addEdge(adj, 6, 7);
-    addEdge(adj, 6, 8);
-    addEdge(adj, 7, 8);
-    addEdge(adj, 6, 9);
-    addEdge(adj, 8, 9);
-    cout << BFSDis(adj, V) << endl;
+    BFSDis(adj, V);
+
+
+    // 3. Print number of islands in a graph (or number of connected components in a graph).
+    // int V = 10;
+    // vector<int> adj[V];
+    // addEdge(adj, 0, 1);
+    // addEdge(adj, 0, 2);
+    // addEdge(adj, 1, 3);
+    // addEdge(adj, 2, 3);
+
+    // addEdge(adj, 4, 5);
+    // addEdge(adj, 5, 6);
+    // addEdge(adj, 4, 6);
+    // addEdge(adj, 4, 7);
+    // addEdge(adj, 6, 7);
+    // addEdge(adj, 6, 8);
+    // addEdge(adj, 7, 8);
+    // addEdge(adj, 6, 9);
+    // addEdge(adj, 8, 9);
+    // cout << BFSDis(adj, V) << endl;
 
 
     return 0;
