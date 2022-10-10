@@ -1,6 +1,7 @@
 // https://www.codingninjas.com/codestudio/problems/minimum-path-sum_985349
 
 #include <bits/stdc++.h> 
+using namespace std;
 
 // recursive solution
 int f(int i, int j, vector<vector<int>> &grid)
