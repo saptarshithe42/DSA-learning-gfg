@@ -1,26 +1,23 @@
-// https://www.codingninjas.com/codestudio/problems/selling-stock_630282
+// https://www.codingninjas.com/codestudio/problems/highway-billboards_3125969
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h> 
 using namespace std;
 
-
 // recursive sol
-long f(int ind, int buy, long * values, int n)
+int f(int ind, int buy, vector<int> &values, int n)
 {
-    if(ind == n)
+    if(ind >= n)
          return 0;
     
-    long profit = 0;
+    int profit = 0;
     if(buy == 1)
     {
-        // max(buy and not buy)
         profit = max(-values[ind] + f(ind+1, 0, values, n),
                     f(ind+1, 1, values, n));
     }
     else
     {
-        // max(sell and not sell)
-        profit = max(values[ind] + f(ind+1, 1, values, n), 
+        profit = max(values[ind] + f(ind+2, 1, values, n), 
                     f(ind+1, 0, values, n));
         
     }
@@ -29,27 +26,26 @@ long f(int ind, int buy, long * values, int n)
     return profit;
 }
 
+
 // dp sol
-long getMaximumProfit(long *values, int n)
-{
-    /* // without dp sol
-    long profit = 0;
-    for(int i = 1; i < n; i++)
-    {
-        long diff = (values[i] - values[i-1]);
-        profit += (diff > 0) ? diff : 0;
-    }
-    return profit; 
-    */
+int stockProfit(vector<int> &values){
+    // Write your code here.
     
-//     return f(0, 1, values, n);
+//     int ind = 0, buy = 1, n = prices.size();
     
-    long dp[n+1][2];
+//     return f(ind, buy, prices, n);
+    
+    int n = values.size();
+    int dp[n+2][2];
+    
     
     for(int i = 0; i < 2; i++)
     {
         dp[n][i] = 0;
+        dp[n+1][i] = 0;
     }
+    
+    
     
     for(int ind = n-1; ind >= 0; ind--)
     {
@@ -62,7 +58,7 @@ long getMaximumProfit(long *values, int n)
             }
             else
             {
-                profit = max(values[ind] + dp[ind+1][1], 
+                profit = max(values[ind] + dp[ind+2][1], 
                             dp[ind+1][0]);
                         
             }
@@ -72,4 +68,5 @@ long getMaximumProfit(long *values, int n)
     }
     
     return dp[0][1];
+    
 }
