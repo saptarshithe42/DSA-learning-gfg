@@ -1,14 +1,12 @@
 // https://practice.geeksforgeeks.org/problems/shortest-path-in-undirected-graph-having-unit-distance/1
 
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
 
 class Solution {
   public:
     vector<int> shortestPath(vector<vector<int>>& edges, int N,int M, int src){
-        
-        // using bfs with relaxation of edges
+        // code here
         
         vector<int> adj[N];
         
@@ -25,7 +23,7 @@ class Solution {
         
         dist[src] = 0;
         
-        
+        // normal bfs logic
         queue<int> q;
         q.push(src);
         
