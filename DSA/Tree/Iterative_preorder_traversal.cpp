@@ -19,23 +19,48 @@ struct Node
 // time complexity : O(n)
 // aux space : O(n)
 
+// void iterative_preorder(Node* root)
+// {
+//     if (root == NULL)
+//         return;
+
+//     stack <Node*> s;
+//     s.push(root);
+
+//     while (s.empty() == false)
+//     {
+//         Node* curr = s.top();
+//         cout << (curr->key) << " ";
+//         s.pop();
+//         if (curr->right != NULL)
+//             s.push(curr->right);
+//         if(curr->left != NULL)
+//             s.push(curr->left);
+//     }
+// }
+
 void iterative_preorder(Node* root)
 {
     if (root == NULL)
         return;
 
     stack <Node*> s;
-    s.push(root);
+    Node* curr = root;
 
-    while (s.empty() == false)
+    while (curr != NULL || s.empty() == false)
     {
-        Node* curr = s.top();
-        cout << (curr->key) << " ";
-        s.pop();
-        if (curr->right != NULL)
-            s.push(curr->right);
-        if(curr->left != NULL)
-            s.push(curr->left);
+        while(curr != NULL){
+            cout << curr->key << " ";
+
+            if(curr->right != NULL){
+                s.push(curr->right);
+            }
+            curr = curr->left;
+        }
+
+        if(s.empty() == false){
+            curr = s.top(); s.pop();
+        }
     }
 }
 
