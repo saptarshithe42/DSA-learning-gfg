@@ -50,6 +50,17 @@ int compute_power(int x, int n)
     return res;
 }
 
+// with mod
+int pow(int a, int b, int m){
+    int ans = 1;
+    while(b){
+        if (b&1) ans = (ans*a) % m;
+        b /= 2;
+        a = (a*a) % m;
+    }
+    return ans;
+}
+
 int main()
 {
 
